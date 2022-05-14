@@ -1,4 +1,4 @@
-package com.inspireui.mstorecommerce;
+package com.yesmk.app;
 
 import android.content.Intent;
 import android.content.Context;
