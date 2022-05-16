@@ -134,6 +134,7 @@ class LoginScreen extends PureComponent {
   onLoginPressHandle = async () => {
     const { login, netInfo } = this.props;
 
+    //  没有连接网络
     if (!netInfo.isConnected) {
       return toast(Languages.noConnection);
     }
@@ -141,30 +142,46 @@ class LoginScreen extends PureComponent {
     this.setState({ isLoading: true });
 
     const { username, password } = this.state;
-
+    console.log('开始登陆')
     // login the customer via Wordpress API and get the access token
-    const json = await WPUserAPI.login(trim(username), password);
+    // const json = await WPUserAPI.login(trim(username), password);
 
-    if (!json) {
-      this.stopAndToast(Languages.GetDataError);
-    } else if (json.error || json.message) {
-      this.stopAndToast(json.error || json.message);
-    } else {
-      if (has(json, "user.id")) {
-        let customers = await WooWorker.getCustomerById(get(json, "user.id"));
+    // if (!json) {
+    //   this.stopAndToast(Languages.GetDataError);
+    // } else if (json.error || json.message) {
+    //   this.stopAndToast(json.error || json.message);
+    // } else {
+    //   if (has(json, "user.id")) {
+    //     let customers = await WooWorker.getCustomerById(get(json, "user.id"));
 
-        customers = { ...customers, username, password };
+    //     customers = { ...customers, username, password };
 
-        this.setState({ isLoading: false });
+    //     this.setState({ isLoading: false });
 
-        this._onBack();
-        login(customers, json.cookie);
+    //     this._onBack();
+    //     login(customers, json.cookie);
 
-        return;
-      }
+    //     return;
+    //   }
 
-      this.stopAndToast(Languages.CanNotLogin);
-    }
+    //   this.stopAndToast(Languages.CanNotLogin);
+    // }
+    auth()
+      .signInWithEmailAndPassword(username, password)
+      .then(() => {
+        console.log('登录成功');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          console.log('That email address is already in use!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          console.log('That email address is invalid!');
+        }
+
+        console.error(error,'错误');
+      });
   };
 
   onFBLoginPressHandle = () => {
@@ -367,8 +384,8 @@ class LoginScreen extends PureComponent {
       // eslint-disable-next-line no-alert
       alert(
         "Currently, we can not get your email, please go to the " +
-          "Settings > Apple ID, iCloud, iTunes & App Store > Password & Security > Apps Using Your Apple ID, " +
-          "tap on your app and tap Stop Using Apple ID"
+        "Settings > Apple ID, iCloud, iTunes & App Store > Password & Security > Apps Using Your Apple ID, " +
+        "tap on your app and tap Stop Using Apple ID"
       );
     }
   };

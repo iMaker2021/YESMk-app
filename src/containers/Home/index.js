@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useEffect, useMemo, useCallback } from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { isEmpty } from "lodash";
 import { useNavigation } from "@react-navigation/native";
@@ -11,6 +11,7 @@ import { Constants, withTheme } from "@common";
 import { HorizonList, ModalLayout, PostList } from "@components";
 import * as CountryRedux from "@redux/CountryRedux";
 import * as CategoryRedux from "@redux/CategoryRedux";
+import database from '@react-native-firebase/database';
 
 import styles from "./styles";
 
@@ -47,8 +48,17 @@ const Home = React.memo(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isConnected, countryList]);
 
+    const setDatabase = () => {
+      database()
+        .ref('https://yesmk-6aaac-default-rtdb.asia-southeast1.firebasedatabase.app/')
+        .once('value')
+        .then(snapshot => {
+          console.log('User data: ', snapshot.val());
+        });
+    }
     return (
       <View style={[styles.container, { backgroundColor: background }]}>
+        <Text style={{ fontSize: 30 }} onPress={setDatabase}>测试database</Text>
         {isHorizontal && (
           <HorizonList
             navigation={navigation}

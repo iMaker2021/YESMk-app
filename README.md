@@ -43,15 +43,19 @@
 - 按定价/标签/类别页面过滤
 - 使用 Facebook 帐户工具包短信登录
 - 支持联盟业务
+  
 ## 项目结构
 ### 公用组件（scr/common）
+
     Config.js：应用程序的主要配置变量
     Colors.js：为应用配置主题颜色
     Constants.js：配置 wordpress URL、图标、类别...
     Images.js：应用程序使用的所有图像的列表
     Languages.js：主要语言文件配置
     Layout.js：用于配置主弹性主页。
+
 ### 工具：常用功能
+
     src/Components : 可以多次使用的常用组件，可以是自定义按钮、评论组件、图标输入...
     src/Containers： 应用程序的大部分组件都放在这里，您可以通过匹配您自己的项目设计来更改或重新构造。
     src/Expo : 包装博览会功能
