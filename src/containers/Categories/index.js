@@ -1,9 +1,10 @@
 /** @format */
 
 import * as React from "react";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect,useState } from "react";
 import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import firebase from "@react-native-firebase/database";
 
 import { Config, Constants, withTheme, Languages } from "@common";
 import { BlockTimer, toast } from "@app/Omni";
@@ -18,6 +19,7 @@ import {
 import * as CategoryRedux from "@redux/CategoryRedux";
 
 import CategoriesList from "./CategoriesList";
+import { values } from "lodash";
 
 const CategoriesScreen = React.memo(
   ({ onViewProductScreen, background, onViewCategory }) => {
@@ -25,7 +27,11 @@ const CategoriesScreen = React.memo(
 
     const isConnected = useSelector((state) => state.netInfo.isConnected);
     const error = useSelector((state) => state.categories.error);
-    const isFetching = useSelector((state) => state.categories.isFetching);
+    const isFetching = useSelector( ( state ) => state.categories.isFetching );
+
+    const [data,setData] = useState();
+    const [seriesList, setSeriesList] = useState();
+
 
     const fetchCategories = useCallback(() => {
       CategoryRedux.actions.fetchCategories(dispatch);
@@ -53,6 +59,12 @@ const CategoriesScreen = React.memo(
     );
 
     useEffect(() => {
+    firebase()
+      .ref("/customers/address")
+      .on( "value", ( values ) => {
+        alert (values.val())
+      })
+
       fetchCategories();
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
