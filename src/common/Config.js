@@ -12,7 +12,7 @@ export default {
    * Step 1: change to your website URL and the wooCommerce API consumeKey
    */
   WooCommerce: {
-    url: "https://demo.mstore.io/",
+    url: "https://mrmagicdaveunderwear.com",
     consumerKey,
     consumerSecret,
   },

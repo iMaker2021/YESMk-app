@@ -166,11 +166,11 @@ export default class Tools {
   static getName = (user) => {
     if (user != null) {
       if (
-        typeof user.last_name !== "undefined" ||
-        typeof user.first_name !== "undefined"
+        typeof user.lastname !== "undefined" ||
+        typeof user.firstname !== "undefined"
       ) {
-        const first = user.first_name != null ? user.first_name : "";
-        const last = user.last_name != null ? user.last_name : "";
+        const first = user.firstname != null ? user.firstname : "";
+        const last = user.lastname != null ? user.lastname : "";
         return `${first} ${last}`;
       } else if (typeof user.name !== "undefined" && user.name != null) {
         return user.name;

@@ -51,6 +51,7 @@ export default class InputPhoneModal extends Component {
 
   onSMSLoginPressHandle = (value) => {
     if (typeof this.props.onSMSLoginPressHandle === "function") {
+      console.log('调用电话验证方法')
       this.props.onSMSLoginPressHandle(value);
     }
   };

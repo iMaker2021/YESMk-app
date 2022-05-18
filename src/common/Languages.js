@@ -671,7 +671,7 @@ export default new LocalizedStrings({
     Product: "产品",
     Cart: "购物车",
     WishList: "愿望列表",
-    InputPhone: "Please input your phone",
+    InputPhone: "请填写您的电话号码",
     // 家
     products: "产品",
     // TopBar

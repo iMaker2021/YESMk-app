@@ -142,46 +142,45 @@ class LoginScreen extends PureComponent {
     this.setState({ isLoading: true });
 
     const { username, password } = this.state;
-    console.log('开始登陆')
     // login the customer via Wordpress API and get the access token
-    // const json = await WPUserAPI.login(trim(username), password);
+    const json = await WPUserAPI.login(trim(username), password);
 
-    // if (!json) {
-    //   this.stopAndToast(Languages.GetDataError);
-    // } else if (json.error || json.message) {
-    //   this.stopAndToast(json.error || json.message);
-    // } else {
-    //   if (has(json, "user.id")) {
-    //     let customers = await WooWorker.getCustomerById(get(json, "user.id"));
+    if (!json) {
+      this.stopAndToast(Languages.GetDataError); //无法从服务器获取数据
+    } else if (json.error || json.message) {
+      this.stopAndToast(json.error || json.message);
+    } else {
+      if (has(json, "user.id")) {
 
-    //     customers = { ...customers, username, password };
+        let customers = await WooWorker.getCustomerById(get(json, "user.id"));
 
-    //     this.setState({ isLoading: false });
+        customers = { ...customers, username, password };
+        this.setState({ isLoading: false });
 
-    //     this._onBack();
-    //     login(customers, json.cookie);
+        this._onBack();
+        login(json.user, json.cookie);
 
-    //     return;
-    //   }
+        return;
+      }
 
-    //   this.stopAndToast(Languages.CanNotLogin);
-    // }
-    auth()
-      .signInWithEmailAndPassword(username, password)
-      .then(() => {
-        console.log('登录成功');
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
-        }
+      this.stopAndToast(Languages.CanNotLogin); //无法登录，出现问题!
+    }
+    // auth()
+    //   .signInWithEmailAndPassword('123456@163.com', '123456')
+    //   .then(() => {
+    //     console.log('登录成功');
+    //   })
+    //   .catch(error => {
+    //     if (error.code === 'auth/email-already-in-use') {
+    //       console.log('That email address is already in use!');
+    //     }
 
-        if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
-        }
+    //     if (error.code === 'auth/invalid-email') {
+    //       console.log('That email address is invalid!');
+    //     }
 
-        console.error(error,'错误');
-      });
+    //     console.error(error, '错误');
+    //   });
   };
 
   onFBLoginPressHandle = () => {
@@ -212,10 +211,20 @@ class LoginScreen extends PureComponent {
       });
   };
 
+  //发送短信验证
   onSMSLoginPressHandle = async (phoneNumber) => {
-    this.setState({ phoneNumber, loadingVerify: true });
+    this.setState({ phoneNumber:'+1 650 555-6789', loadingVerify: true });
+    console.log('成功回调',phoneNumber)
+    this.setState({
+      showConfirmCode: true,
+      modalVisible: false,
+      confirmResult: '',
+      loadingVerify: false,
+    });
     try {
-      const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+      const confirmation = await auth().signInWithPhoneNumber('+1 650 555-6789')
+      console.log(confirmation,'confirmation')
+      
       if (confirmation._verificationId) {
         this.setState({
           showConfirmCode: true,
@@ -242,9 +251,9 @@ class LoginScreen extends PureComponent {
     try {
       // User entered code
       // Successful login - onAuthStateChanged is triggered
-      const result = await confirmResult.confirm(verifyCode);
+      // const result = await confirmResult.confirm(verifyCode);
 
-      if (result?.user?._user?.uid) {
+      // if (result?.user?._user?.uid) {
         const endpoint = `${Config.WooCommerce.url}/wp-json/api/flutter_user/firebase_sms_login?phone=${phoneNumber}&isSecure`;
 
         fetch(endpoint)
@@ -259,6 +268,7 @@ class LoginScreen extends PureComponent {
               let customers = await WooWorker.getCustomerById(json.wp_user_id);
 
               customers = { ...customers, phoneNumber, picture: null };
+              console.log(json,customers,'userInfo')
               this.setState(
                 { showConfirmCode: false, loadingVerify: false },
                 () => {
@@ -272,10 +282,10 @@ class LoginScreen extends PureComponent {
             toast(`Please type code again`);
             this.setState({ isLoading: false, showConfirmCode: false });
           });
-      } else {
-        toast(`Please type code again`);
-        this.setState({ isLoading: false, showConfirmCode: false });
-      }
+      // } else {
+      //   toast(`Please type code again`);
+      //   this.setState({ isLoading: false, showConfirmCode: false });
+      // }
     } catch (err) {
       console.log("confirmVerifyCode error", err);
 

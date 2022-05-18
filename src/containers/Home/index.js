@@ -58,7 +58,6 @@ const Home = React.memo(
     }
     return (
       <View style={[styles.container, { backgroundColor: background }]}>
-        <Text style={{ fontSize: 30 }} onPress={setDatabase}>测试database</Text>
         {isHorizontal && (
           <HorizonList
             navigation={navigation}
