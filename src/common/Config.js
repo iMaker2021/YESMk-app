@@ -4,8 +4,8 @@ import Images from "./Images";
 import Constants from "./Constants";
 import Icons from "./Icons";
 
-const consumerKey = "ck_4c5dea07e73878ceb71699f6e44a46daee5b19ba";
-const consumerSecret = "cs_f3febffaafcddd76597641d740957f4b0b7673ee";
+const consumerKey = "ck_9ce06c4f8ac0952e58dacebe6c071de4c7bcef1e";
+const consumerSecret = "cs_de61e6875ff989289c65594508fd76bef2a721a3";
 
 export default {
   /**
@@ -93,6 +93,70 @@ export default {
       image: require("@images/categories_icon/ic_glasses.png"),
       colors: ["#30cfd0", "#330867"],
       label: "أكياس",
+    },
+  ],
+  HomeCategories_CN: [
+    {
+      category: 55,
+      image: require("@images/categories_icon/ic_shorts.png"),
+      colors: ["#4facfe", "#00f2fe"],
+      label: "运动裤",
+    },
+    {
+      category: 21,
+      image: require("@images/categories_icon/ic_tshirt.png"),
+      colors: ["#43e97b", "#38f9d7"],
+      label: "T恤",
+    },
+    {
+      category: 208,
+      image: require("@images/categories_icon/ic_panties.png"),
+      colors: ["#fa709a", "#fee140"],
+      label: "内衣",
+    },
+    {
+      category: 26,
+      image: require("@images/categories_icon/ic_dress.png"),
+      colors: ["#7F00FF", "#E100FF"],
+      label: "女装",
+    },
+    {
+      category: 24,
+      image: require("@images/categories_icon/ic_glasses.png"),
+      colors: ["#30cfd0", "#330867"],
+      label: "箱包",
+    },
+  ],
+  HomeCategories_TC: [
+    {
+      category: 55,
+      image: require("@images/categories_icon/ic_shorts.png"),
+      colors: ["#4facfe", "#00f2fe"],
+      label: "运动裤",
+    },
+    {
+      category: 21,
+      image: require("@images/categories_icon/ic_tshirt.png"),
+      colors: ["#43e97b", "#38f9d7"],
+      label: "T恤",
+    },
+    {
+      category: 208,
+      image: require("@images/categories_icon/ic_panties.png"),
+      colors: ["#fa709a", "#fee140"],
+      label: "内衣",
+    },
+    {
+      category: 26,
+      image: require("@images/categories_icon/ic_dress.png"),
+      colors: ["#7F00FF", "#E100FF"],
+      label: "女装",
+    },
+    {
+      category: 24,
+      image: require("@images/categories_icon/ic_glasses.png"),
+      colors: ["#30cfd0", "#330867"],
+      label: "箱包",
     },
   ],
   /**

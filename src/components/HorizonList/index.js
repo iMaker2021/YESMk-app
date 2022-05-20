@@ -31,11 +31,14 @@ const HorizonList = React.memo(
     const isFetching = useSelector((state) => state.layouts.isFetching);
 
     const isConnected = useSelector((state) => state.netInfo.isConnected);
-
+    console.log(layout,'datadata')
     const fetchAllProductsLayout = useCallback(() => {
       LayoutRedux.actions.fetchAllProductsLayout(dispatch, layout);
+      console.log(layout,'datadata')
     }, [dispatch, layout]);
-
+    useEffect(()=>{
+      console.log('主页显示，horizonlist')
+    },[])
     useEffect(() => {
       if (!initializing) {
         fetchAll();

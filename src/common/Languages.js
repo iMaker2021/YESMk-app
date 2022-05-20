@@ -657,7 +657,7 @@ export default new LocalizedStrings({
     UserProfile: "ملف تعريفي للمستخدم",
     LoadMore: "تحميل المزيد"
   },
-  zh: {
+  cn: {
     Exit: "退出",
     ExitConfirm: "你确定要退出这个应用程序",
     YES: "是的",
@@ -955,6 +955,8 @@ export default new LocalizedStrings({
     CanNotRegister: "无法注册用户，请重试。",
 
     UserProfile: "用户资料",
-    LoadMore: "加载更多"
+    LoadMore: "加载更多",
+    AccountInformations: "用户信息",
   },
+  tc:{}
 });

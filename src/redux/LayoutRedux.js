@@ -77,6 +77,7 @@ export const actions = {
         10,
         page
       ).then((json) => {
+        console.log(json,'json')
         if (json === undefined) {
           dispatch(actions.fetchProductsFailure(Languages.getDataError));
         } else if (json.code) {

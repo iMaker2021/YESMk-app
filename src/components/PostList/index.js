@@ -26,6 +26,7 @@ class PostList extends PureComponent {
 
   componentDidMount() {
     this.page === 1 && this.fetchData();
+    console.log('主页显示，postlist')
   }
 
   fetchData = (reload = false) => {

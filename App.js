@@ -14,6 +14,7 @@ import { getNotification } from "@app/Omni";
 import store from "@store/configureStore";
 
 import Router from "./src/Router";
+import {Text} from "react-native"
 
 enableScreens();
 

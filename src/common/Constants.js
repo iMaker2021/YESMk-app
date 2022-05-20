@@ -104,6 +104,8 @@ const Constants = {
   Languages: {
     en: "en",
     ar: "ar",
+    cn:"cn",
+    tc:"tc"
   },
 };
 

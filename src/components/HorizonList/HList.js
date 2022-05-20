@@ -1,4 +1,7 @@
-/** @format */
+/** 
+ * @format
+ * 头部导航栏
+ * */
 
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
@@ -159,14 +162,26 @@ class HorizonList extends PureComponent {
     const { VerticalLayout } = AppConfig;
     const list =
       typeof collection !== "undefined" &&
-      typeof collection.list !== "undefined"
+        typeof collection.list !== "undefined"
         ? collection.list
         : this.defaultList;
     const isPaging = !!config.paging;
-    const data =
-      language.lang === Constants.Languages.en
-        ? Config.HomeCategories
-        : Config.HomeCategories_AR;
+    let dataItem = ''
+    switch (language.lang) {
+      case Constants.Languages.en:
+        dataItem = Config.HomeCategories
+        break;
+      case Constants.Languages.cn:
+        dataItem = Config.HomeCategories_CN
+        break
+      case Constants.Languages.tc:
+        dataItem = Config.HomeCategories_CN
+        break
+      default:
+        dataItem = Config.HomeCategories_AR
+        break;
+    }
+    const data = dataItem
 
     // eslint-disable-next-line default-case
     switch (config.layout) {

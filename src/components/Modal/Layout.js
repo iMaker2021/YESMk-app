@@ -1,4 +1,7 @@
-/** @format */
+/** 
+ * @format
+ * 底部导航栏
+ */
 
 import React, { PureComponent } from "react";
 import { View } from "react-native";

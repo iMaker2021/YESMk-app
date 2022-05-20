@@ -11,7 +11,6 @@ import { Constants, withTheme } from "@common";
 import { HorizonList, ModalLayout, PostList } from "@components";
 import * as CountryRedux from "@redux/CountryRedux";
 import * as CategoryRedux from "@redux/CategoryRedux";
-import database from '@react-native-firebase/database';
 
 import styles from "./styles";
 
@@ -38,6 +37,10 @@ const Home = React.memo(
       [layoutHome]
     );
 
+    useEffect(()=>{
+      console.log('主页显示')
+    },[])
+
     useEffect(() => {
       if (isConnected) {
         if (!countryList || isEmpty(countryList)) {
@@ -48,14 +51,6 @@ const Home = React.memo(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isConnected, countryList]);
 
-    const setDatabase = () => {
-      database()
-        .ref('https://yesmk-6aaac-default-rtdb.asia-southeast1.firebasedatabase.app/')
-        .once('value')
-        .then(snapshot => {
-          console.log('User data: ', snapshot.val());
-        });
-    }
     return (
       <View style={[styles.container, { backgroundColor: background }]}>
         {isHorizontal && (

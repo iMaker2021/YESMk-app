@@ -77,6 +77,10 @@ class LanguagePicker extends PureComponent {
           icon = Images.IconOmanFlag;
           name = "Arabic";
           break;
+        case "cn":
+          icon = Images.ICONCNFlag
+          name = "中文简体"
+          break
         default:
           icon = Images.IconUkFlag;
           name = "English";
