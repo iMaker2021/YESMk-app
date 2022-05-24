@@ -7836,7 +7836,7 @@ prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8063,13 +8063,6 @@ react-native-country-picker-modal@^2.0.0:
     node-emoji "1.10.0"
     prop-types "15.7.2"
     react-async-hook "3.6.1"
-
-"react-native-drawer@https://github.com/luyx2412/react-native-drawer.git":
-  version "2.5.1"
-  resolved "git+ssh://git@github.com/luyx2412/react-native-drawer.git#8cd0f922d3e49e16a8c5c39b8c94606a0179f27f"
-  dependencies:
-    prop-types "^15.5.8"
-    tween-functions "^1.0.1"
 
 react-native-fbsdk-next@^7.3.3:
   version "7.3.3"
@@ -9406,22 +9399,23 @@ table@^6.0.9:
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
 
-"tcomb-form-native@https://github.com/Vizir/tcomb-form-native.git":
+tcomb-form-native@^0.6.20:
   version "0.6.20"
-  resolved "git+ssh://git@github.com/Vizir/tcomb-form-native.git#3cd228fcf576bebdf3576e95408cdd3ecc9382b1"
+  resolved "https://registry.npmmirror.com/tcomb-form-native/-/tcomb-form-native-0.6.20.tgz#81771faf86536a5d4c0f492885eb229324d47ea5"
+  integrity sha512-tuvLmdii2zvkevzFKMS1lYbmE5BeKuRF+sokVqllfjwrViLjgdSCD2Y8WZHUYbUMTbBfEUF65F0vd5zP+Owr2Q==
   dependencies:
     tcomb-validation "^3.0.0"
 
 tcomb-validation@^3.0.0:
   version "3.4.1"
-  resolved "https://registry.npmjs.org/tcomb-validation/-/tcomb-validation-3.4.1.tgz"
+  resolved "https://registry.npmmirror.com/tcomb-validation/-/tcomb-validation-3.4.1.tgz#a7696ec176ce56a081d9e019f8b732a5a8894b65"
   integrity sha512-urVVMQOma4RXwiVCa2nM2eqrAomHROHvWPuj6UkDGz/eb5kcy0x6P0dVt6kzpUZtYMNoAqJLWmz1BPtxrtjtrA==
   dependencies:
     tcomb "^3.0.0"
 
 tcomb@^3.0.0:
   version "3.2.29"
-  resolved "https://registry.npmjs.org/tcomb/-/tcomb-3.2.29.tgz"
+  resolved "https://registry.npmmirror.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
   integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
 
 temp@0.8.3:
@@ -9611,11 +9605,6 @@ tsutils@^3.21.0:
   integrity sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==
   dependencies:
     tslib "^1.8.1"
-
-tween-functions@^1.0.1:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/tween-functions/-/tween-functions-1.2.0.tgz"
-  integrity sha1-GuOlDnxguz3vd06scHrLynO7w/8=
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
