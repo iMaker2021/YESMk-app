@@ -344,3 +344,9 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
     login: (user, token) => dispatch(actions.login(user, token)),
   };
 }
+
+export default connect(
+  mapStateToProps,
+  null,
+  mergeProps
+)(withTheme(UserProfile));

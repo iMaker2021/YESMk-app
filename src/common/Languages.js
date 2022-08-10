@@ -355,7 +355,10 @@ export default new LocalizedStrings({
     Exchange: "Confirm the change",
     Coupon: "Coupon",
     ConversionCode: "Code",
-    ForSuccessful: "Redeem successful, can go to my coupon to view"
+    ForSuccessful: "Redeem successful, can go to my coupon to view",
+    deleteTip:"Are You Sure You Want Yo Delete",
+    deleteSuccess:"SignOut Success",
+    deleteButton:'Delete this user',
   },
   cn: {
     AddCredit: "获取积分",
@@ -676,7 +679,10 @@ export default new LocalizedStrings({
     Exchange: "确认兌換",
     Coupon: "优惠券",
     ConversionCode: "兑换码",
-    ForSuccessful: "兑换成功，可前往我的优惠券查看"
+    ForSuccessful: "兑换成功，可前往我的优惠券查看",
+    deleteTip:"确认要删除吗",
+    deleteSuccess:"删除成功",
+    deleteButton:'删除该用户',
   },
   tc: {
     Exit: "退出",
@@ -996,6 +1002,9 @@ export default new LocalizedStrings({
     Exchange: "確認兌換",
     Coupon: "優惠券",
     ConversionCode: "兌換碼",
-    ForSuccessful: "兌換成功，可前往我的優惠券查看"
+    ForSuccessful: "兌換成功，可前往我的優惠券查看",
+    deleteSuccess:"删除成功",
+    deleteTip:"確認要删除嗎",
+    deleteButton:'删除該用戶',
   }
 });
