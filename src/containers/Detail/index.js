@@ -265,9 +265,8 @@ class Detail extends PureComponent {
       productVariations.map((variant) => {
         let matchCount = 0;
         selectedAttribute.map((selectAttribute) => {
-          console.log('selectAttributeName', selectAttribute.name);
+          // console.log('selectAttributeName', selectAttribute.name);
 
-          console.log(variant.attributes);
           const isMatch = find(
             variant.attributes,
             (item) => {
