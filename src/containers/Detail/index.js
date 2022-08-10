@@ -174,7 +174,11 @@ class Detail extends PureComponent {
       // eslint-disable-next-line no-alert
       alert(Languages.ProductLimitWaring.replace("{num}", limit));
     }
-    if (go) onViewCart();
+    if (go){
+      onViewCart();
+    } else{
+      toast(Languages.AddedtoCart);
+    }
   };
 
   addToWishList = (isAddWishList) => {
@@ -261,8 +265,9 @@ class Detail extends PureComponent {
       productVariations.map((variant) => {
         let matchCount = 0;
         selectedAttribute.map((selectAttribute) => {
-          // console.log('selectAttributeName', selectAttribute.name);
+          console.log('selectAttributeName', selectAttribute.name);
 
+          console.log(variant.attributes);
           const isMatch = find(
             variant.attributes,
             (item) => {
