@@ -151,8 +151,8 @@ export default StyleSheet.create({
     fontFamily: Constants.fontFamily,
   },
   logo: {
-    height: 120,
-    width: 120,
+    height: 70,
+    width: 70,
     resizeMode: "contain",
   },
 });
